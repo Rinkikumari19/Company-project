@@ -6,11 +6,13 @@ export default function Details() {
     React.useEffect(() => {
       axios.get('https://jsonplaceholder.typicode.com/todos').then((response) => {
         setPost(response.data);
+				console.log(post);
       });
     }, []);
 
 
     const funct = (id) => {
+      // console.log(id)
 			const newPost = post.map((element)=>{
 				if(element.id === id){
 					element.completed = true;
@@ -18,6 +20,7 @@ export default function Details() {
 				return element
 			})
 			setPost(newPost)
+      
 		
     }
     return (
